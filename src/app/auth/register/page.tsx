@@ -158,15 +158,23 @@ const RegisterPage = () => {
               {showPassword ? <FaEye /> : <FaEyeSlash />}
             </button>
           </div>
-          {/* kekuatan password */}
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div
-              className={`h-2 rounded-full transition-all ${getStrengthColor()}`}
-              style={{ width: `${passwordStrength}%` }}
-            />
-          </div>
-          <p className="text-xs text-gray-500">Strength: {passwordStrength}%</p>
-          {errors.password && <p className="text-red-600 text-sm italic mt-1">{errors.password.message}</p>}
+
+          {/* strength bar */}
+          {passwordValue.length > 0 && (
+            <>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  className={`h-2 rounded-full transition-all ${getStrengthColor()}`}
+                  style={{ width: `${passwordStrength}%` }}
+                />
+              </div>
+              <p className="text-xs text-gray-500">Strength: {passwordStrength}%</p>
+            </>
+          )}
+
+          {errors.password && (
+            <p className="text-red-600 text-sm italic mt-1">{errors.password.message}</p>
+          )}
         </div>
 
         {/* konfirmasi pw */}
