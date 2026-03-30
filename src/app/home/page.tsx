@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (!isLoggedIn) {
-      router.replace('/auth/notauthorized');
+      router.replace('/auth/notauthorized/page.tsx');
     }
   }, [router]);
 
